@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 20% 97%;
+    --foreground: 150 27% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 27% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 27% 12%;
+    --primary: 152 19% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 152 18% 90%;
+    --secondary-foreground: 150 27% 12%;
+    --muted: 152 10% 94%;
+    --muted-foreground: 152 8% 48%;
+    --accent: 152 18% 90%;
+    --accent-foreground: 150 27% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 152 14% 88%;
+    --input: 152 14% 88%;
+    --ring: 152 19% 36%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+}
+
+/* ─── Keyframes ─── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-3.5deg); }
+  50%       { transform: rotate(3.5deg); }
+}
+
+@keyframes bloomPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25%       { transform: scale(1.18) rotate(6deg); }
+  75%       { transform: scale(1.18) rotate(-6deg); }
+}
+
+@keyframes sproutBob {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50%       { transform: scale(1.07) translateY(-3px); }
+}
+
+@keyframes floatLeaf {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg);   opacity: 0; }
+  8%   { opacity: 0.85; }
+  85%  { opacity: 0.55; }
+  100% { transform: translateY(-110vh) translateX(30px) rotate(540deg); opacity: 0; }
+}
+
+@keyframes leafAppear {
+  from { opacity: 0; transform: scale(0.1); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes stemGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes petalOpen {
+  from { opacity: 0; transform: scale(0) rotate(0deg); }
+  to   { opacity: 0.92; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Utility classes ─── */
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.45s ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.35s ease-out both;
+  }
+
+  .animate-sway {
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  .animate-bloom {
+    animation: bloomPulse 2.8s ease-in-out infinite;
+  }
+
+  .animate-sprout {
+    animation: sproutBob 1.8s ease-in-out infinite;
+  }
+
+  .animate-float-leaf {
+    animation: floatLeaf linear infinite;
+  }
+
+  .animate-leaf-appear {
+    animation: leafAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .animate-petal {
+    animation: petalOpen 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+}
